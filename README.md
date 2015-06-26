@@ -8,12 +8,11 @@ Example of a **producer**:
 
 ```java
 // Create a factory with given configuration
-BeanstalkFactory factory = BeanstalkFactory.builder()
-												   .host("localhost")
-												   .port(11300)
-												   .connectionTimeout(5000)
-												   .tube("dummy_tube")
-												   .build();
+BeanstalkFactory factory = BeanstalkFactory.builder().host("localhost")
+												     .port(11300)
+												     .connectionTimeout(5000)
+												     .tube("dummy_tube")
+												     .build();
 // fetch the producer
 Producer producer = factory.get().producer();
 // place job
@@ -44,12 +43,11 @@ Example of a **producer**:
 
 ```java
 // Like in non-pooled client we need to configure first or connection
-BeanstalkFactory factory = BeanstalkFactory.builder()
-												   .host("localhost")
-												   .port(11300)
-												   .connectionTimeout(5000)
-												   .tube("another_dummy_tube")
-												   .build();
+BeanstalkFactory factory = BeanstalkFactory.builder().host("localhost")
+												     .port(11300)
+												     .connectionTimeout(5000)
+												     .tube("another_dummy_tube")
+												     .build();
 
 // Optionally we could configure non-default pool parameters
 GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
@@ -81,7 +79,11 @@ try (Worker worker = pool.getResource().worker()) {
 Another fast way of creating a pool in a single line with some default parameters but the tube itself can be:
 
 ```
-BeanstalkPool pool = BeanstalkFactory.builder().host("xyz.blah.com").tube("some-tube").uild().pool();
+BeanstalkPool pool = BeanstalkFactory.builder()
+                                     .host("xyz.blah.com")
+                                     .tube("some-tube")
+                                     .build()
+                                     .pool();
 ```
 
 
