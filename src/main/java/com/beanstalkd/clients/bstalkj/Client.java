@@ -59,6 +59,7 @@ public class Client implements Closeable {
 
     protected void useTube(String tube) {
         execute(USE, tube);
+        this.tube  = tube;
     }
 
     protected int watchTube(String tube) {

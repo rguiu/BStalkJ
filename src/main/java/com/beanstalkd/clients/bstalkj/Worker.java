@@ -51,8 +51,6 @@ public class Worker implements Closeable {
      *
      * @param job      The job to bury. This job must previously have been reserved.
      * @param priority The new priority to assign to the job.
-     * @throws BeanstalkException If an unexpected response is received from the server, or other unexpected
-     *                            problem occurs.
      */
     public void bury(BeanstalkJob job, int priority) {
         client.bury(job, priority);
