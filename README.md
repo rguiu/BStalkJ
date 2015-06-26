@@ -80,8 +80,8 @@ try (Worker worker = pool.getResource().worker()) {
 
 Another fast way of creating a pool in a single line with some default parameters but the tube itself can be:
 
-``
-BeanstalkPool pool = BeanstalkFactory.builder().host("xyz.blah.com").tube("some-tube").build().pool();
+```
+BeanstalkPool pool = BeanstalkFactory.builder().host("xyz.blah.com").tube("some-tube").uild().pool();
 ```
 
 
