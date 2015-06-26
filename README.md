@@ -71,12 +71,19 @@ Using try-with-resource we ensure the client is returned to the pool.
 And for the **Worker**:
 
 ```java
-try (Worker worker = factory.get().worker()) {
+try (Worker worker = pool.getResource().worker()) {
 			BeanstalkJob job = worker.reserve(60).get();
 			log.info("Got job: " + job);
 			worker.delete(job);
 }
 ```
+
+Another fast way of creating a pool in a single line with some default parameters but the tube itself can be:
+
+``
+BeanstalkPool pool = BeanstalkFactory.builder().host("xyz.blah.com").tube("some-tube").build().pool();
+```
+
 
 ###Credits
 

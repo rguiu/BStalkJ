@@ -58,7 +58,23 @@ public class ExampleNonDefaultConfiguration {
 			log.info(producer.tubeStats());
 		}
 
-		try (Worker worker = factory.get().worker()) {
+		try (Worker worker = pool.getResource().worker()) {
+			BeanstalkJob job = worker.reserve(60).get();
+			log.info("Got job: " + job);
+			worker.delete(job);
+		}
+		pool.destroy();
+	}
+
+	public static void pooledExample2() {
+		BeanstalkPool pool = BeanstalkFactory.builder().tube("some-tube").build().pool();
+
+		try (Producer producer = pool.getResource().producer()) {
+			producer.put(1l, 0, 5000, "this is some data".getBytes());
+			log.info(producer.tubeStats());
+		}
+
+		try (Worker worker = pool.getResource().worker()) {
 			BeanstalkJob job = worker.reserve(60).get();
 			log.info("Got job: " + job);
 			worker.delete(job);
