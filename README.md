@@ -76,11 +76,12 @@ try (Worker worker = pool.getResource().worker()) {
 }
 ```
 
-Another fast way of creating a pool in a single line with some default parameters but the tube itself can be:
+Another fast way of creating a pool in a single line but the tube itself can be:
 
 ```
 BeanstalkPool pool = BeanstalkFactory.builder()
                                      .host("xyz.blah.com")
+                                     .port(1111)
                                      .tube("some-tube")
                                      .build()
                                      .pool();
@@ -89,9 +90,9 @@ BeanstalkPool pool = BeanstalkFactory.builder()
 
 ###Credits
 
-I have taken ideas and code from: [Jedis](https://github.com/xetorthio/jedis)
++ I have taken ideas and code from: [Jedis](https://github.com/xetorthio/jedis)
 
-And from: [TrendrrBeanstalk](https://github.com/dustismo/TrendrrBeanstalk)
++ And from: [TrendrrBeanstalk](https://github.com/dustismo/TrendrrBeanstalk)
 
 License is MIT
 
