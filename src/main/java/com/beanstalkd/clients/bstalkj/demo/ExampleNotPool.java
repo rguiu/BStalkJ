@@ -21,6 +21,8 @@ public class ExampleNotPool {
 	public static void notPooledExample() {
 		BeanstalkFactory factory = BeanstalkFactory.factory().build();
 
+		System.out.println(factory);
+
 		Client client = factory.get();
 
 		double producerTime = timedMethod(ExampleNotPool::notPooledParallelProducer, client);

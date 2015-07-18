@@ -21,10 +21,10 @@ public class BeanstalkConnection implements Closeable {
     private BeanstalkInputStream inputStream;
     private BeanstalkOutputStream outputStream;
 
-    private String host = BeanstalkProtocol.DEFAULT_HOST;
-    private int port = BeanstalkProtocol.DEFAULT_PORT;
-    private int connectionTimeout = BeanstalkProtocol.DEFAULT_TIMEOUT;
-    private int soTimeout = BeanstalkProtocol.DEFAULT_SO_TIMEOUT;
+    private String host;
+    private int port;
+    private int connectionTimeout;
+    private int soTimeout;
 
     private boolean broken;
 
