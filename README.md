@@ -43,7 +43,7 @@ Example of a **producer**:
 
 ```java
 // Like in non-pooled client we need to configure first or connection
-BeanstalkFactory factory = BeanstalkFactory.builder().host("localhost")
+BeanstalkFactory factory = BeanstalkFactory.factory().host("localhost")
 												     .port(11300)
 												     .connectionTimeout(5000)
 												     .tube("another_dummy_tube")
@@ -79,7 +79,7 @@ try (Worker worker = pool.getResource().worker()) {
 Another fast way of creating a pool in a single line but the tube itself can be:
 
 ```
-BeanstalkPool pool = BeanstalkFactory.builder()
+BeanstalkPool pool = BeanstalkFactory.factory()
                                      .host("xyz.blah.com")
                                      .port(1111)
                                      .tube("some-tube")

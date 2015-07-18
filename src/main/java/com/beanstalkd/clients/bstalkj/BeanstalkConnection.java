@@ -13,7 +13,7 @@ import com.beanstalkd.clients.bstalkj.util.BeanstalkInputStream;
 import com.beanstalkd.clients.bstalkj.util.BeanstalkOutputStream;
 import lombok.Builder;
 
-@Builder
+@Builder(builderMethodName = "connection")
 public class BeanstalkConnection implements Closeable {
     private final static Logger log = LoggerFactory.getLogger(BeanstalkConnection.class);
 

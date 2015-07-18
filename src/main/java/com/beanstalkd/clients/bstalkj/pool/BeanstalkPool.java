@@ -25,7 +25,7 @@ public class BeanstalkPool implements Closeable {
     }
 
     public BeanstalkPool(final GenericObjectPoolConfig poolConfig, BeanstalkFactory factory) {
-        PooledObjectFactory<Client> pooledFactory = BeanstalkPooledFactory.builder().factory(factory).build();
+        PooledObjectFactory<Client> pooledFactory = BeanstalkPooledFactory.pooledFactory().factory(factory).build();
         initPool(poolConfig, pooledFactory);
     }
 

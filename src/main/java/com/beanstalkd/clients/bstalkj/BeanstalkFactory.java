@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 import com.beanstalkd.clients.bstalkj.pool.BeanstalkPool;
 import lombok.Builder;
 
-@Builder
+@Builder(builderMethodName = "factory")
 public class BeanstalkFactory {
     private String host = BeanstalkProtocol.DEFAULT_HOST;
     private int port = BeanstalkProtocol.DEFAULT_PORT;
@@ -28,12 +28,8 @@ public class BeanstalkFactory {
         return new BeanstalkPool(this);
     }
 
-    public static BeanstalkFactory defaultFactory() {
-        return BeanstalkFactory.builder().build();
-    }
-
     private BeanstalkConnection connection() {
-        return BeanstalkConnection.builder()
+        return BeanstalkConnection.connection()
                                   .host(host)
                                   .port(port)
                                   .soTimeout(soTimeout)

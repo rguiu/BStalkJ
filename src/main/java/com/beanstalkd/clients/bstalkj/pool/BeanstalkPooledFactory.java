@@ -1,6 +1,5 @@
 package com.beanstalkd.clients.bstalkj.pool;
 
-import static com.beanstalkd.clients.bstalkj.BeanstalkFactory.defaultFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.PooledObjectFactory;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
@@ -8,7 +7,7 @@ import com.beanstalkd.clients.bstalkj.BeanstalkFactory;
 import com.beanstalkd.clients.bstalkj.Client;
 import lombok.Builder;
 
-@Builder
+@Builder(builderMethodName = "pooledFactory")
 public class BeanstalkPooledFactory implements PooledObjectFactory<Client> {
 
     private BeanstalkFactory factory;
@@ -45,6 +44,6 @@ public class BeanstalkPooledFactory implements PooledObjectFactory<Client> {
     }
 
     public static BeanstalkPooledFactory defaultPooledFactory() {
-        return BeanstalkPooledFactory.builder().factory(defaultFactory()).build();
+        return BeanstalkPooledFactory.pooledFactory().factory(BeanstalkFactory.factory().build()).build();
     }
 }

@@ -19,7 +19,7 @@ public class ExamplePool {
 	}
 
 	public static void pooledExample() {
-		BeanstalkPool pool = BeanstalkFactory.defaultFactory().pool();
+		BeanstalkPool pool = BeanstalkFactory.factory().build().pool();
 
 		double producerTime = timedMethod(ExamplePool::pooledParallelProducer, pool);
 		System.out.println("Producer time taken: " + producerTime);

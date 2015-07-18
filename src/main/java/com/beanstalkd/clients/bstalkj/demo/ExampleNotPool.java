@@ -19,7 +19,7 @@ public class ExampleNotPool {
 	}
 
 	public static void notPooledExample() {
-		BeanstalkFactory factory = BeanstalkFactory.defaultFactory();
+		BeanstalkFactory factory = BeanstalkFactory.factory().build();
 
 		Client client = factory.get();
 
