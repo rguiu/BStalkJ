@@ -101,7 +101,7 @@ public class Client implements Closeable {
         execute(BURY, job.getId(), priority);
     }
 
-    protected void init() {
+    protected synchronized void init() {
         if (active) {
             return;
         }
@@ -114,7 +114,7 @@ public class Client implements Closeable {
         }
     }
 
-    public void destroy() {
+    public synchronized void destroy() {
         if (this.connection != null) {
             this.connection.close();
         }
