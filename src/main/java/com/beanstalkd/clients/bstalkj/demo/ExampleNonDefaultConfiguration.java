@@ -23,7 +23,6 @@ public class ExampleNonDefaultConfiguration {
         BeanstalkFactory factory = BeanstalkFactory.factory()
                 .host("localhost")
                 .port(11300)
-                .connectionTimeout(5000)
                 .tube("dummy_tube")
                 .build();
 
@@ -43,7 +42,6 @@ public class ExampleNonDefaultConfiguration {
         BeanstalkFactory factory = BeanstalkFactory.factory()
                 .host("localhost")
                 .port(11300)
-                .connectionTimeout(5000)
                 .tube("another_dummy_tube")
                 .build();
 

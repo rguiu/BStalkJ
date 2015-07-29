@@ -8,7 +8,7 @@ Example of a **producer**:
 
 ```java
 // Create a factory with given configuration
-BeanstalkFactory factory = BeanstalkFactory.builder().host("localhost")
+BeanstalkFactory factory = BeanstalkFactory.factory().host("localhost")
 												     .port(11300)
 												     .connectionTimeout(5000)
 												     .tube("dummy_tube")
